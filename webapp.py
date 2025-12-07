@@ -186,3 +186,12 @@ if st.button("Predict Delay"):
 
         except Exception as e:
             st.error(f"Prediction failed: {e}")
+            
+            
+def check_inputs(df):
+    
+    if df["ORIGIN_AIRPORT"].iloc[0] == df["DESTINATION_AIRPORT"].iloc[0]:
+        st.error("❌ Origin and Destination airports cannot be the same. Please select different airports.")
+        return False
+    
+    return True
